@@ -3,7 +3,7 @@ import os
 
 if __name__ == "__main__":
     print("ORACLE STATUS: Reading the Matrix...\n")
-    find: bool = dotenv.load_dotenv(".env.example")
+    find: bool = dotenv.load_dotenv()
 
     if find:
         print("Configuration loaded:")
