@@ -1,7 +1,19 @@
-import importlib.metadata as il
-import numpy as np
-import pandas as ps
-import matplotlib.pyplot as mpl
+try:
+    import importlib.metadata as il
+except ImportError:
+    il = None
+try:
+    import numpy as np
+except ImportError:
+    np = None
+try:
+    import pandas as ps
+except ImportError:
+    ps = None
+try:
+    import matplotlib.pyplot as mpl
+except ImportError:
+    mpl = None
 
 if __name__ == "__main__":
     print("\nLOADING STATUS: Loading programs...\n")
