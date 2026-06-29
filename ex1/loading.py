@@ -1,19 +1,7 @@
-try:
-    import importlib.metadata as il
-except ImportError:
-    il = None
-try:
-    import numpy as np
-except ImportError:
-    np = None
-try:
-    import pandas as ps
-except ImportError:
-    ps = None
-try:
-    import matplotlib.pyplot as mpl
-except ImportError:
-    mpl = None
+import importlib.metadata as il
+import numpy as np
+import pandas as ps
+import matplotlib.pyplot as mpl
 
 if __name__ == "__main__":
     print("\nLOADING STATUS: Loading programs...\n")
@@ -51,5 +39,6 @@ if __name__ == "__main__":
             "\nAnalysis skipped because one or more dependencies are missing."
         )
         print(
-            "To install packages use 'pip install -r requirements' or 'poetry install'"
+            "To install packages use 'pip install -r "
+            "requirements' or 'poetry install'"
         )
