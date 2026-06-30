@@ -1,22 +1,18 @@
-try:
-    import importlib.metadata as il
-except ImportError:
-    il = None
-try:
-    import numpy as np
-except ImportError:
-    np = None
-try:
-    import pandas as ps
-except ImportError:
-    ps = None
-try:
-    import matplotlib.pyplot as mpl
-except ImportError:
-    mpl = None
+import importlib as il
+import importlib.metadata as ilm
+from types import ModuleType
 
 if __name__ == "__main__":
     print("\nLOADING STATUS: Loading programs...\n")
+    np: None | ModuleType = None
+    ps: None | ModuleType = None
+    mpl: None | ModuleType = None
+    try:
+        np = il.import_module("numpy")
+        ps = il.import_module("pandas")
+        mpl = il.import_module("matplotlib.pyplot")
+    except ImportError as e:
+        print(e)
     print("Checking dependencies:")
     packages: dict[str, str] = {
         "pandas": "Data manipulation ready",
@@ -25,9 +21,9 @@ if __name__ == "__main__":
     }
     for pack, message in packages.items():
         try:
-            ver: str = il.version(pack)
+            ver: str = ilm.version(pack)
             print(f"[OK] {pack} ({ver}) - {message}")
-        except il.PackageNotFoundError as e:
+        except ilm.PackageNotFoundError as e:
             print(f"\n{e}")
     if np and il and ps and mpl:
         width: int = 8
